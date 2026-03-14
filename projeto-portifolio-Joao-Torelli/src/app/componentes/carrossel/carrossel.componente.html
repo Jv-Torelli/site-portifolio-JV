@@ -1,0 +1,163 @@
+<section id="secao-projetos" class="carrossel-secao">
+  <div class="carrossel-secao__container">
+
+    <div class="cabecalho-secao">
+      <span class="secao__numero">02.</span>
+      <h2 class="secao__titulo">Projetos</h2>
+      <div class="secao__linha"></div>
+    </div>
+
+    <div class="carrossel-secao__filtros">
+      <span class="filtro__label">filtrar:</span>
+      <span class="filtro__chip filtro__chip--ativo">Todos</span>
+      <span class="filtro__chip">Principais</span>
+      <span class="filtro__chip">Didáticos</span>
+      <span class="filtro__chip">Desafios</span>
+    </div>
+
+  </div>
+
+  <div class="carrossel__area"
+       (mousedown)="aoIniciarArrastar($event)"
+       (mouseup)="aoSoltarArrastar($event)"
+       (mouseleave)="aoSoltarArrastar($event)"
+       (touchstart)="aoIniciarToque($event)"
+       (touchend)="aoTerminarToque($event)"
+       (mouseenter)="pararAvanceAutomatico()">
+
+    <div class="carrossel__faixa" [ngStyle]="obterEstiloFaixa()">
+
+      <article class="cartao-projeto"
+               *ngFor="let projeto of projetos; let i = index"
+               [ngClass]="obterClasseCartao(i)"
+               (click)="irParaIndice(i)">
+
+        <div class="cartao__visualizacao" [style.border-color]="projeto.corDestaque + '40'">
+
+          <div class="visualizacao__icone-container" [style.color]="projeto.corDestaque">
+            <div class="visualizacao__icone-fundo" [style.background]="projeto.corDestaque + '10'">
+              <span class="visualizacao__icone">{{ projeto.iconeTerminal }}</span>
+            </div>
+            <div class="visualizacao__anel visualizacao__anel--1"
+                 [style.border-color]="projeto.corDestaque + '30'"></div>
+            <div class="visualizacao__anel visualizacao__anel--2"
+                 [style.border-color]="projeto.corDestaque + '20'"></div>
+            <div class="visualizacao__anel visualizacao__anel--3"
+                 [style.border-color]="projeto.corDestaque + '10'"></div>
+          </div>
+
+          <div class="visualizacao__mini-terminal">
+            <div class="mini-terminal__cabecalho">
+              <div class="mini-terminal__pontos">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="mini-terminal__nome">{{ projeto.titulo | lowercase }}.ts</span>
+            </div>
+            <div class="mini-terminal__corpo">
+              <p class="mini-terminal__linha">
+                <span class="codigo-azul">class</span>
+                <span class="codigo-amarelo"> {{ projeto.titulo | titlecase }}</span>
+                <span class="codigo-branco"> &#123;</span>
+              </p>
+              <p class="mini-terminal__linha">
+                <span class="codigo-verde">  // {{ projeto.descricaoBreve }}</span>
+              </p>
+              <p class="mini-terminal__linha">
+                <span class="codigo-roxo">  status</span>
+                <span class="codigo-branco">: </span>
+                <span class="codigo-laranja">'{{ projeto.statusTexto }}'</span>
+              </p>
+              <p class="mini-terminal__linha">
+                <span class="codigo-branco">&#125;</span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cartao__corpo">
+
+          <div class="cartao__cabecalho">
+            <span class="cartao__categoria" [style.color]="obterCorCategoria(projeto.categoria)">
+              {{ obterLabelCategoria(projeto.categoria) }}
+            </span>
+            <span class="cartao__status"
+                  [ngClass]="{
+                    'status--em-desenvolvimento': projeto.status === 'em-desenvolvimento',
+                    'status--concluido': projeto.status === 'concluido',
+                    'status--estudo': projeto.status === 'estudo'
+                  }">
+              <span class="status__ponto"></span>
+              {{ projeto.statusTexto }}
+            </span>
+          </div>
+
+          <h3 class="cartao__titulo">{{ projeto.titulo }}</h3>
+          <p class="cartao__organizacao">{{ projeto.organizacao }}</p>
+
+          <p class="cartao__descricao cartao__descricao--completa">
+            {{ projeto.descricaoCompleta }}
+          </p>
+          <p class="cartao__descricao cartao__descricao--breve">
+            {{ projeto.descricaoBreve }}
+          </p>
+
+          <div class="cartao__tecnologias">
+            <span class="tecnologia__chip"
+                  *ngFor="let tech of projeto.tecnologias"
+                  [style.border-color]="projeto.corDestaque + '40'"
+                  [style.color]="projeto.corDestaque">
+              {{ tech }}
+            </span>
+          </div>
+
+          <div class="cartao__rodape">
+            <a class="cartao__link-github"
+               [href]="projeto.linkGithub"
+               target="_blank"
+               rel="noopener"
+               (click)="$event.stopPropagation()">
+              <span class="link-github__icone">⌥</span>
+              Ver no GitHub
+            </a>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="carrossel__controles">
+
+    <button class="controle__seta controle__seta--anterior"
+            (click)="irParaAnterior()"
+            aria-label="Projeto anterior">
+      <span>←</span>
+    </button>
+
+    <div class="controle__pontos">
+      <button class="ponto"
+              *ngFor="let projeto of projetos; let i = index"
+              [class.ponto--ativo]="i === indiceAtivo()"
+              [style.background]="i === indiceAtivo() ? projetoAtivo().corDestaque : ''"
+              (click)="irParaIndice(i)"
+              [attr.aria-label]="'Ir para ' + projeto.titulo">
+      </button>
+    </div>
+
+    <button class="controle__seta controle__seta--proximo"
+            (click)="irParaProximo()"
+            aria-label="Próximo projeto">
+      <span>→</span>
+    </button>
+
+  </div>
+
+  <div class="carrossel__posicao">
+    <span class="posicao__atual">{{ (indiceAtivo() + 1).toString().padStart(2, '0') }}</span>
+    <span class="posicao__separador">/</span>
+    <span class="posicao__total">{{ projetos.length.toString().padStart(2, '0') }}</span>
+  </div>
+
+</section>

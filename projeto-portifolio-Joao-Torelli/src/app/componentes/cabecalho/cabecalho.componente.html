@@ -1,0 +1,49 @@
+<header id="cabecalho" [class.cabecalho--rolado]="cabecalhoRolado()">
+  <div class="cabecalho__container">
+
+    <a class="cabecalho__logo" (click)="rolarParaSecao('secao-hero')">
+      <span class="logo__colchete">[</span>
+      <span class="logo__iniciais">JV</span>
+      <span class="logo__separador">.</span>
+      <span class="logo__sobrenome">Torelli</span>
+      <span class="logo__colchete">]</span>
+    </a>
+
+    <nav class="cabecalho__nav" [class.cabecalho__nav--aberto]="menuAberto()">
+      <ul class="nav__lista">
+        <li class="nav__item">
+          <button class="nav__link" (click)="rolarParaSecao('secao-sobre')">
+            <span class="nav__prefixo">01.</span> Sobre
+          </button>
+        </li>
+        <li class="nav__item">
+          <button class="nav__link" (click)="rolarParaSecao('secao-projetos')">
+            <span class="nav__prefixo">02.</span> Projetos
+          </button>
+        </li>
+        <li class="nav__item">
+          <button class="nav__link" (click)="rolarParaSecao('secao-certificacoes')">
+            <span class="nav__prefixo">03.</span> Certificações
+          </button>
+        </li>
+        <li class="nav__item">
+          <button class="nav__link" (click)="rolarParaSecao('secao-contato')">
+            <span class="nav__prefixo">04.</span> Contato
+          </button>
+        </li>
+        <li class="nav__item nav__item--github">
+          <a class="nav__botao-github" href="https://github.com/Jv-Torelli" target="_blank" rel="noopener">
+            <span class="github__icone">⌥</span> GitHub
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <button class="cabecalho__menu-hamburguer" (click)="alternarMenu()" [attr.aria-expanded]="menuAberto()">
+      <span class="hamburguer__linha" [class.hamburguer__linha--ativo]="menuAberto()"></span>
+      <span class="hamburguer__linha" [class.hamburguer__linha--ativo]="menuAberto()"></span>
+      <span class="hamburguer__linha" [class.hamburguer__linha--ativo]="menuAberto()"></span>
+    </button>
+
+  </div>
+</header>

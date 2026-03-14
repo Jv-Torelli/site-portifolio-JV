@@ -1,0 +1,103 @@
+<section id="secao-sobre" class="sobre">
+  <div class="sobre__container">
+
+    <div class="sobre__cabecalho-secao">
+      <span class="secao__numero">01.</span>
+      <h2 class="secao__titulo">Sobre mim</h2>
+      <div class="secao__linha"></div>
+    </div>
+
+    <div class="sobre__conteudo">
+
+      <div class="sobre__texto">
+        <div class="sobre__bloco-codigo" aria-hidden="true">
+          <span class="codigo__comentario">// joao-victor-torelli.json</span>
+        </div>
+
+        <p class="sobre__paragrafo">
+          Sou <strong class="destaque-verde">João Victor Torelli de Matos</strong>,
+          desenvolvedor formado como
+          <strong class="destaque-verde">Técnico em Desenvolvimento de Sistemas</strong>
+          pela <strong class="destaque-branco">Etec de Guaianases</strong>.
+          Minha jornada no desenvolvimento é marcada por projetos que vão além do código —
+          são soluções com beneficiários reais e impacto concreto.
+        </p>
+
+        <p class="sobre__paragrafo">
+          No dia 05/08/2026 iniciei minha jornada no
+          <strong class="destaque-vermelho">Bradesco</strong>, atuando no mercado
+          financeiro na vertical de <strong class="destaque-verde">Canais Digitais</strong>
+          e contribuindo para o desenvolvimento de uma plataforma interna corporativa
+          voltada à evolução contínua dos serviços digitais da organização.
+        </p>
+
+        <p class="sobre__paragrafo">
+          Tenho experiência na construção e evolução de aplicações backend e APIs,
+          utilizando principalmente <strong class="destaque-verde">Java 17+</strong> e
+          <strong class="destaque-verde">Spring Boot</strong>. Também trabalho com bancos
+          de dados como PostgreSQL, MySQL e MongoDB, além de arquiteturas baseadas em
+          microserviços, containers com Docker e integração com plataformas cloud
+          como AWS e Azure.
+        </p>
+
+        <p class="sobre__paragrafo">
+          Atualmente estou desenvolvendo o
+          <strong class="destaque-verde">TurboTech</strong>, um sistema para automação
+          de oficinas mecânicas focado na geração de orçamentos digitais e gestão
+          operacional. Ao longo da minha trajetória também desenvolvi plataformas web,
+          sistemas de monitoramento IoT e APIs seguras aplicando boas práticas como
+          Clean Architecture, SOLID e testes automatizados.
+        </p>
+
+        <p class="sobre__paragrafo">
+          Acredito que engenharia de software vai além de escrever código — trata-se
+          de construir soluções sustentáveis que gerem valor real para as pessoas
+          e para o negócio, sempre buscando evolução técnica e qualidade no que é entregue.
+        </p>
+
+        <p class="sobre__paragrafo">
+          Tenho certificações
+          <strong class="destaque-branco">Microsoft AZ-900</strong>,
+          <strong class="destaque-branco">DP-900</strong> e
+          <strong class="destaque-branco">Scrum Fundamentals</strong>,
+          o que complementa minha visão técnica com fundamentos de nuvem e gestão ágil de projetos.
+        </p>
+
+        <div class="sobre__badges">
+          <div class="badge badge--etec">
+            <span class="badge__icone">🎓</span>
+            <div class="badge__info">
+              <span class="badge__titulo">Técnico em Dev. Sistemas</span>
+              <span class="badge__subtitulo">Etec de Guaianases</span>
+            </div>
+          </div>
+          <div class="badge badge--github">
+            <span class="badge__icone">⌥</span>
+            <div class="badge__info">
+              <span class="badge__titulo">github.com/Jv-Torelli</span>
+              <span class="badge__subtitulo">13 repositórios</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sobre__habilidades">
+        <div class="habilidades__grupo" *ngFor="let grupo of habilidades">
+          <h3 class="grupo__categoria">
+            <span class="grupo__prefixo">const</span>
+            {{ grupo.categoria }}
+            <span class="grupo__igual">=</span>
+            <span class="grupo__colchete">[</span>
+          </h3>
+          <ul class="grupo__lista">
+            <li class="grupo__item" *ngFor="let item of grupo.itens">
+              <span class="item__seta">→</span> {{ item }}
+            </li>
+          </ul>
+          <span class="grupo__colchete grupo__colchete--fechamento">]</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

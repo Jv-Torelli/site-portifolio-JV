@@ -1,0 +1,21 @@
+:root {
+  --cor-fundo:             #05080f;
+  --cor-fundo-secundario:  #0a0e1a;
+  --cor-superficie:        #0f1525;
+  --cor-borda:             rgba(255, 255, 255, 0.08);
+  --cor-borda-suave:       rgba(255, 255, 255, 0.04);
+
+  --cor-texto:             #e8eaf0;
+  --cor-cinza-claro:       #a0a8bc;
+  --cor-cinza-medio:       #545c70;
+
+  --cor-verde:             #00ff88;
+  --cor-azul:              #00aaff;
+  --cor-ciano:             #00ffdd;
+  --cor-amarelo:           #ffd700;
+  --cor-roxo:              #aa66ff;
+
+  --fonte-display: 'Oxanium', sans-serif;
+  --fonte-mono:    'JetBrains Mono', monospace;
+  --fonte-corpo:   'Exo 2', sans-serif;
+}

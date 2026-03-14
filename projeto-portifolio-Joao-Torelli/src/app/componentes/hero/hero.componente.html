@@ -1,0 +1,70 @@
+<section id="secao-hero" class="hero">
+
+  <div class="hero__grade-fundo" aria-hidden="true">
+    <div class="grade__linha-horizontal" *ngFor="let l of [1,2,3,4,5,6,7,8]"></div>
+    <div class="grade__linha-vertical" *ngFor="let l of [1,2,3,4,5,6]"></div>
+  </div>
+
+  <div class="hero__orbe" aria-hidden="true"></div>
+
+  <div class="hero__container">
+
+    <div class="hero__apresentacao">
+      <p class="hero__saudacao">
+        <span class="saudacao__colchete">//</span> Olá, mundo. Eu sou
+      </p>
+
+      <h1 class="hero__nome">
+        <span class="nome__linha nome__linha--destaque">João Victor</span>
+        <span class="nome__linha">Torelli</span>
+        <span class="nome__linha nome__linha--contorno">de Matos</span>
+      </h1>
+
+      <p class="hero__cargo">
+        <span class="cargo__cursor">&#9646;</span>
+        Desenvolvedor de Software
+      </p>
+
+      <p class="hero__descricao">
+        Técnico em Desenvolvimento de Sistemas pela
+        <strong class="destaque-verde">Etec de Guaianases</strong>.
+        Construo soluções que resolvem problemas reais —
+        do sensor de gás à plataforma de e-sports,
+        do orçamento digital ao back-end seguro.
+      </p>
+
+      <div class="hero__acoes">
+        <button class="botao botao--primario" (click)="rolarParaProjetos()">
+          <span class="botao__prefixo">$</span> ver projetos()
+        </button>
+        <button class="botao botao--secundario" (click)="rolarParaSobre()">
+          <span class="botao__prefixo">//</span> sobre mim
+        </button>
+      </div>
+    </div>
+
+    <div class="hero__terminal">
+      <div class="terminal__cabecalho">
+        <div class="terminal__botoes">
+          <span class="terminal__botao terminal__botao--fechar"></span>
+          <span class="terminal__botao terminal__botao--minimizar"></span>
+          <span class="terminal__botao terminal__botao--maximizar"></span>
+        </div>
+        <span class="terminal__titulo">bash — portfolio.sh</span>
+      </div>
+      <div class="terminal__corpo" id="corpo-terminal">
+        <div class="terminal__linha" *ngFor="let linha of linhasTerminal; let i = index"
+             [class.terminal__linha--cursor]="i === linhasTerminal.length - 1">
+          <span class="terminal__texto">{{ linha }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero__rolagem-indicador" aria-label="Role para baixo">
+    <span class="rolagem__texto">scroll</span>
+    <div class="rolagem__seta"></div>
+  </div>
+
+</section>
