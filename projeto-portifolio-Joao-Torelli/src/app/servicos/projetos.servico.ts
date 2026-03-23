@@ -15,7 +15,7 @@ export class ProjetosServico {
         tecnologias: ['React', 'Java', 'Spring Boot', 'Spring Security', 'MySQL Workbench', 'JWT', 'Spring', 'Integração com a Api Placas', 'Geração de PDF via Apache Poi', 'Redis'],
         status: 'em-desenvolvimento',
         statusTexto: 'Em Desenvolvimento',
-        linkGithub: 'https://github.com/Jv-Torelli',
+        linkGithub: 'https://github.com/Turbo-Tech-7',
         categoria: 'principal',
         corDestaque: '#00ff88',
         iconeTerminal: '⚙'

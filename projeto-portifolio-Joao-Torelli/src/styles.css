@@ -15,7 +15,6 @@ body {
   font-family: var(--fonte-corpo);
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
 }
 
 body::before {
